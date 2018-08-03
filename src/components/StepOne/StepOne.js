@@ -45,7 +45,7 @@ class StepOne extends Component {
 
     render(){
         const{updateName, updateAddress, updateCity,updateState, updateZipcode} = this.props
-        console.log(this.props.state)
+        // console.log(this.props.name)
         return (
             <div>
                 Add New Listing
