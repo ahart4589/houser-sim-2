@@ -14,6 +14,12 @@ export default function House (props){
             <br/>
             zip: {props.house.zip}
             <br/>
+            image: {props.house.image}
+            <br/>
+            mortgage: {props.house.mortgage}
+            <br/>
+            rent: {props.house.rent}
+            <br/>
             <button>Delete</button>
         </div>
     )

@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import{Link} from 'react-router-dom'
 import axios from 'axios'
+import{connect} from 'react-redux'
+import {updateMortgage, updateRent} from '../../ducks/reducer'
 
-export default class StepThree extends Component {
+class StepThree extends Component {
     constructor(){
         super()
         this.state = {
@@ -46,7 +48,7 @@ export default class StepThree extends Component {
                 Monthly Mortgage Amount
                 <input value={this.state.mortgage} onChange={this.handleMortgage}/>
                 <br/>
-                Desire Montly Rent
+                Desired Montly Rent
                 <input value={this.state.rent} onChange={this.handleRent}/>
                 <br/>
                 <br/>
@@ -61,3 +63,18 @@ export default class StepThree extends Component {
         )
     }
 }
+
+function mapStateToProps(state){
+    const {name, address, city, State, zipcode,image, mortgage, rent} = state
+    return{
+        name: name,
+        address: address,
+        city: city,
+        State: State,
+        zipcode: zipcode,
+        image: image,
+        mortgage: mortgage,
+        rent: rent
+    }
+}
+export default connect(mapStateToProps, {updateMortgage,updateRent})(StepThree)

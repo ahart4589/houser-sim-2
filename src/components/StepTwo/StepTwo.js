@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import{Link} from 'react-router-dom'
 // import axios from 'axios'
+import{connect} from 'react-redux'
+import {updateImage} from '../../ducks/reducer'
 
-export default class StepTwo extends Component {
+class StepTwo extends Component {
     constructor(){
         super()
         this.state = {
@@ -33,3 +35,12 @@ export default class StepTwo extends Component {
         )
     }
 }
+
+function mapStateToProps(state){
+    const {image} = state
+    return{
+        image: image
+    }
+}
+
+export default connect(mapStateToProps, {updateImage})(StepTwo)

@@ -1,66 +1,71 @@
 import React, {Component} from 'react'
 import{Link} from 'react-router-dom'
 import axios from 'axios'
+import{connect} from 'react-redux'
+import{updateName, updateAddress, updateCity, updateState, updateZipcode} from '../../ducks/reducer'
 
 
 
-export default class StepOne extends Component {
-    constructor(){
-        super()
-        this.state = {
-            name: '',
-            address: '',
-            city: '',
-            state: '',
-            zipcode: 0
-        }
-        this.handleName = this.handleName.bind(this)
-    }
+class StepOne extends Component {
+    // constructor(){
+    //     super()
+    //     this.state = {
+    //         name: '',
+    //         address: '',
+    //         city: '',
+    //         state: '',
+    //         zipcode: 0
+    //     }
+    //     this.handleName = this.handleName.bind(this)
+    // }
 
-    handleName(e){
-        // console.log(this.state)
-        this.setState({name: e.target.value})
-    }
+    // handleName(e){
+    //     console.log(this.state)
+    //     this.setState({name: e.target.value})
+    // }
 
-    handleAddress = (e) => {
-        // console.log(this.state)
-        this.setState({address: e.target.value})
-    }
-    handleCity = (e) => {
-        // console.log(this.state)
-        this.setState({city: e.target.value})
-    }
-    handleState = (e) => {
-        // console.log(this.state)
-        this.setState({state: e.target.value})
-    }
-    handleZipcode = (e) => {
-        console.log(this.state)
-        this.setState({zipcode: e.target.value})
-    }
+    // handleAddress = (e) => {
+    //     // console.log(this.state)
+    //     this.setState({address: e.target.value})
+    // }
+    // handleCity = (e) => {
+    //     // console.log(this.state)
+    //     this.setState({city: e.target.value})
+    // }
+    // handleState = (e) => {
+    //     // console.log(this.state)
+    //     this.setState({state: e.target.value})
+    // }
+    // handleZipcode = (e) => {
+    //     console.log(this.state)
+    //     this.setState({zipcode: e.target.value})
+    // }
 
 
 
     render(){
+        const{updateName, updateAddress, updateCity,updateState, updateZipcode} = this.props
         return (
             <div>
                 Add New Listing
                 <br/>
-                Property Name
-                <input value={this.state.name} onChange={this.handleName}/>
-                <br/>
-                Address
-                <input value={this.state.address} onChange={this.handleAddress}/>
-                <br/>
-                City
-                <input value={this.state.city} onChange={this.handleCity}/>
-                <br/>
-                State
-                <input value={this.state.state} onChange={this.handleState}/>
-                <br/>
-                Zip
-                <input value={this.state.zipcode} onChange={this.handleZipcode}/>
-                <br/>
+                <div>
+                    Property Name
+                    <input onChange={(e) => updateName(e.target.value)}/>
+                    <br/>
+                    Address
+                    <input onChange={(e) => updateAddress(e.target.value)}/>
+                    <br/>
+                    City
+                    <input onChange={(e) => updateCity(e.target.value)}/>
+                    <br/>
+                    State
+                    <input onChange={(e) => updateState(e.target.value)}/>
+                    <br/>
+                    Zip
+                    <input onChange={(e) => updateZipcode(e.target.value)}/>
+                    <br/>
+                </div>
                 <Link to='/wizard/step2'>
                     <button>Next Step</button>
                 </Link>
@@ -68,3 +73,16 @@ export default class StepOne extends Component {
         )
     }
 }
+
+function mapStateToProps(state){
+    const {name, address, city, State, zipcode} = state
+    return{
+        name: name,
+        address: address,
+        city: city,
+        State: State,
+        zipcode: zipcode
+    }
+}
+
+export default connect(mapStateToProps, {updateName,updateAddress,updateCity,updateState,updateZipcode})(StepOne)
