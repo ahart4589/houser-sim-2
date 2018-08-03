@@ -14,3 +14,7 @@
 
 -- insert into houses(name, address, city, state, zip)
 -- values ('Jurassic Park', '339 E. Dino Cir.', 'Isla Sorna', 'DN', 12974)
+
+-- alter table houses add column image text
+-- alter table houses add column monthlyMortgage decimal
+-- alter table houses add column desiredRent decimal

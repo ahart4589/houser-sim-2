@@ -4,11 +4,10 @@ import axios from 'axios'
 
 
 
-export default class Wizard extends Component {
+export default class StepOne extends Component {
     constructor(){
         super()
         this.state = {
-            houses:[],
             name: '',
             address: '',
             city: '',
@@ -39,32 +38,12 @@ export default class Wizard extends Component {
         console.log(this.state)
         this.setState({zipcode: e.target.value})
     }
-    updateHouses = (houses) => {
-        this.setState({houses})
-    }
 
-    addHouse = () => {
-        const {name,address,city,state,zip} = this.state
-        const newHouse = {name,address,city,state,zip}
-        axios.post('/api/house',newHouse).then(results => {
-            this.updateHouses(results.data)
-            this.setState({
-                name: '',
-                address: '',
-                city: '',
-                state: '',
-                zipcode: 0
-            })
-            
-        })
-    }
+
 
     render(){
         return (
             <div>
-                <Link to='/'>
-                    <button>Cancel</button>
-                </Link>
                 Add New Listing
                 <br/>
                 Property Name
@@ -81,10 +60,7 @@ export default class Wizard extends Component {
                 <br/>
                 Zip
                 <input value={this.state.zipcode} onChange={this.handleZipcode}/>
-                <Link to='/'>
-                    <button onClick={this.addHouse}>Complete</button>
-                </Link>
-
+                
             </div>
         )
     }

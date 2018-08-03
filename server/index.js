@@ -18,6 +18,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
 
 
 app.get('/api/houses', controller.getHouses)
+app.post('/api/houses/:id', controller.addHouse)
 
 app.listen(3029, () => {
     console.log('Listening on port 3029')

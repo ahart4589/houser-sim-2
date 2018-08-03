@@ -3,6 +3,7 @@ import{Link} from 'react-router-dom'
 import axios from 'axios'
 
 import House from '../House/House'
+import Wizard from '../Wizard/Wizard'
 
 export default class Dashboard extends Component {
     constructor(){
@@ -20,11 +21,13 @@ export default class Dashboard extends Component {
         })
     }
 
+   
+
     render(){
         return (
-            <div>
+            <div style={{backgroundColor: '#E5F4EC'}}>
                 <Link to='/wizard'>
-                    <button>Add New Property</button>
+                    <button style={{backgroundColor:'#8AEA92'}}>Add New Property</button>
                 </Link>
                 {
                     this.state.houses.map((house, index) => {
@@ -33,6 +36,7 @@ export default class Dashboard extends Component {
                         )
                     })
                 }
+                
             </div>
         )
     }
