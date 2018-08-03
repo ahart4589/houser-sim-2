@@ -11,3 +11,6 @@
 -- values ('Hogwarts', '785 W. Magic Ln.', 'HarryPotter Ville', 'EN', 87690), 
 -- ('The Red Keep', '967 S. Death Rd.', 'Kings Landing', 'FS', 76490),
 -- ('The Black Pearl', '777 N. Ocean Dr.', 'Open Sean', 'NW', 36457)
+
+-- insert into houses(name, address, city, state, zip)
+-- values ('Jurassic Park', '339 E. Dino Cir.', 'Isla Sorna', 'DN', 12974)

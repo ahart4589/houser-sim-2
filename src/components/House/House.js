@@ -1,9 +1,20 @@
 import React from 'react'
 
-export default function House (){
+export default function House (props){
+    console.log(props)
     return(
         <div>
-           House 
+            name: {props.house.name}
+            <br/>
+            address: {props.house.address}
+            <br/>
+            city: {props.house.city}
+            <br/>
+            state: {props.house.state}
+            <br/>
+            zip: {props.house.zip}
+            <br/>
+            <button>Delete</button>
         </div>
     )
 }
