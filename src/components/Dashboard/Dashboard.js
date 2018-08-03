@@ -26,7 +26,7 @@ export default class Dashboard extends Component {
     render(){
         return (
             <div style={{backgroundColor: '#E5F4EC'}}>
-                <Link to='/wizard'>
+                <Link to='/wizard/step1'>
                     <button style={{backgroundColor:'#8AEA92'}}>Add New Property</button>
                 </Link>
                 {

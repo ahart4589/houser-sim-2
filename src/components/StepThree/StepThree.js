@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-// import{Link} from 'react-router-dom'
-// import axios from 'axios'
+import{Link} from 'react-router-dom'
+import axios from 'axios'
 
 export default class StepThree extends Component {
     constructor(){
@@ -48,6 +48,11 @@ export default class StepThree extends Component {
                 <br/>
                 Desire Montly Rent
                 <input value={this.state.rent} onChange={this.handleRent}/>
+                <br/>
+                <br/>
+                <Link to='/wizard/step2'>
+                    <button>Previous Step</button>
+                </Link>
                 <br/>
                 <Link to='/'>
                     <button onClick={this.addHouse}>Complete</button>

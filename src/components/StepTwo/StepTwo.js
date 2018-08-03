@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import{Link} from 'react-router-dom'
+import{Link} from 'react-router-dom'
 // import axios from 'axios'
 
 export default class StepTwo extends Component {
@@ -22,6 +22,13 @@ export default class StepTwo extends Component {
                 <br/>
                 Image URL
                 <input value={this.state.image} onChange={this.handleImage}/>
+                <br/>
+                <Link to='/wizard/step1'>
+                    <button>Previous Step</button>
+                </Link>
+                <Link to='/wizard/step3'>
+                    <button>Next Step</button>
+                </Link>
             </div>
         )
     }

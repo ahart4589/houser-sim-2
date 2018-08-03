@@ -60,7 +60,10 @@ export default class StepOne extends Component {
                 <br/>
                 Zip
                 <input value={this.state.zipcode} onChange={this.handleZipcode}/>
-                
+                <br/>
+                <Link to='/wizard/step2'>
+                    <button>Next Step</button>
+                </Link>
             </div>
         )
     }
