@@ -45,6 +45,7 @@ class StepOne extends Component {
 
     render(){
         const{updateName, updateAddress, updateCity,updateState, updateZipcode} = this.props
+        console.log(this.props.state)
         return (
             <div>
                 Add New Listing
@@ -75,12 +76,12 @@ class StepOne extends Component {
 }
 
 function mapStateToProps(state){
-    const {name, address, city, State, zipcode} = state
+    const {name, address, city, zipcode} = state
     return{
         name: name,
         address: address,
         city: city,
-        State: State,
+        state: state.state,
         zipcode: zipcode
     }
 }

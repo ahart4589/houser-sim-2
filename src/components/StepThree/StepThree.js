@@ -5,23 +5,23 @@ import{connect} from 'react-redux'
 import {updateMortgage, updateRent} from '../../ducks/reducer'
 
 class StepThree extends Component {
-    constructor(){
-        super()
-        this.state = {
-            houses:[],
-            mortgage:0,
-            rent:0
-        }
-        this.handleMortgage = this.handleMortgage.bind(this)
-        this.handleRent = this.handleRent.bind(this)
-    }
-    handleMortgage(e){
-        this.setState({mortgage: e.target.value})
-    }
+    // constructor(){
+    //     super()
+    //     this.state = {
+    //         houses:[],
+    //         mortgage:0,
+    //         rent:0
+    //     }
+    //     this.handleMortgage = this.handleMortgage.bind(this)
+    //     this.handleRent = this.handleRent.bind(this)
+    // }
+    // handleMortgage(e){
+    //     this.setState({mortgage: e.target.value})
+    // }
 
-    handleRent(e){
-        this.setState({rent: e.target.value})
-    }
+    // handleRent(e){
+    //     this.setState({rent: e.target.value})
+    // }
 
     addHouse = () => {
         const {name,address,city,state,zip} = this.state
@@ -41,15 +41,17 @@ class StepThree extends Component {
 
 
     render(){
+        console.log(this.props.rent)
+        const{updateMortgage,updateRent} = this.props
         return(
             <div>
                 Add New Listing
                 <br/>
                 Monthly Mortgage Amount
-                <input value={this.state.mortgage} onChange={this.handleMortgage}/>
+                <input onChange={(e) => updateMortgage(e.target.value)}/>
                 <br/>
                 Desired Montly Rent
-                <input value={this.state.rent} onChange={this.handleRent}/>
+                <input onChange={(e) => updateRent(e.target.value)}/>
                 <br/>
                 <br/>
                 <Link to='/wizard/step2'>
@@ -57,7 +59,7 @@ class StepThree extends Component {
                 </Link>
                 <br/>
                 <Link to='/'>
-                    <button onClick={this.addHouse}>Complete</button>
+                    <button>Complete</button>
                 </Link>
             </div>
         )
